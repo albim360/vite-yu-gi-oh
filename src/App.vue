@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <AppHeader />
-    <AppMain />
+    <AppHeader @search="filter = $event" />
+    <AppMain :filter="filter" />
     <AppFooter />
   </div>
 </template>
@@ -12,13 +12,16 @@ import AppMain from './components/AppMain.vue';
 import AppFooter from './components/AppFooter.vue';
 
 export default {
+  name: 'App',
   components: {
     AppHeader,
     AppMain,
     AppFooter,
   },
+  data() {
+    return {
+      filter: '',
+    };
+  },
 };
 </script>
-
-<style>
-</style>
